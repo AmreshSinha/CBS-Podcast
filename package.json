@@ -26,6 +26,6 @@
   "dependencies": {},
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
-    "*.{ts,tsx,md}": "prettier --write"
+    "*.{js,jsx,md}": "prettier --write"
   }
 }
