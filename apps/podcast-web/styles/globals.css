@@ -49,5 +49,5 @@ table {
 
 @font-face {
 	font-family: 'Space Grotesk', sans-serif;
-	src: url('../public/SpaceGrotesk.ttf') format("truetype");
+	src: url(../public/SpaceGrotesk.ttf);
 }
