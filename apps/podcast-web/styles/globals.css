@@ -48,6 +48,6 @@ table {
 }
 
 @font-face {
-	font-family: 'Space Grotesk', sans-serif;
-	src: url(../public/SpaceGrotesk.ttf);
+	font-family: 'Space Grotesk';
+	src: url('../public/SpaceGrotesk.ttf') format('truetype');
 }
