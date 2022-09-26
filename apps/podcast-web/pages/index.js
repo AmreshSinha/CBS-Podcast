@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
+import grainImg from "../public/grain-dark.png";
 
 export default function Landing() {
   return (
@@ -14,10 +15,10 @@ export default function Landing() {
       {/* <Navbar /> */}
       <PerspectiveGrid>
         <CBSLogo>
-          <img src="/CBSLogo.png" alt="CBS Logo" />
+          <img src="/IITG_White.png" alt="CBS Logo" />
         </CBSLogo>
         <PerspectiveGridTitles>
-          <h1>CBS</h1>
+          <h1>IIT Guwahati</h1>
           <h2>Podcast</h2>
         </PerspectiveGridTitles>
         <PerspectiveGridContent>
@@ -34,7 +35,77 @@ export default function Landing() {
 const HomeWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #100f0f;
+  overflow: hidden;
+  background-color: #100f0f;
+  background-image: url(${grainImg.src});
+  background-size: 50%;
+  background-position: 0%;
+  animation: bg-animation 0.2s infinite;
+  @keyframes bg-animation {
+    0% {
+      background-position: 0%;
+    }
+    5% {
+      background-position: 5%;
+    }
+    10% {
+      background-position: 10%;
+    }
+    15% {
+      background-position: 15%;
+    }
+    20% {
+      background-position: 20%;
+    }
+    25% {
+      background-position: 25%;
+    }
+    30% {
+      background-position: 30%;
+    }
+    35% {
+      background-position: 35%;
+    }
+    40% {
+      background-position: 40%;
+    }
+    45% {
+      background-position: 45%;
+    }
+    50% {
+      background-position: 50%;
+    }
+    55% {
+      background-position: 55%;
+    }
+    60% {
+      background-position: 60%;
+    }
+    65% {
+      background-position: 65%;
+    }
+    70% {
+      background-position: 70%;
+    }
+    75% {
+      background-position: 75%;
+    }
+    80% {
+      background-position: 80%;
+    }
+    85% {
+      background-position: 85%;
+    }
+    90% {
+      background-position: 90%;
+    }
+    95% {
+      background-position: 95%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
 `;
 
 const PerspectiveGrid = styled.div`
@@ -57,8 +128,8 @@ const CBSLogo = styled.div`
   align-items: flex-end;
   img {
     margin-top: 2rem;
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
   }
 `;
