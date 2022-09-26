@@ -7,13 +7,13 @@ export default function Navbar() {
       <NavbarWrapper>
         <NavbarContainer>
           <NavbarLogoText>
-            <Link href="/">
-              <a>CBS Podcast</a>
+            <Link href="/home">
+              <a>IITG Podcast</a>
             </Link>
           </NavbarLogoText>
           <NavbarLinks>
             <NavbarLink href="/home">Home</NavbarLink>
-            <NavbarLink href="/podcasts">Podcasts</NavbarLink>
+            {/* <NavbarLink href="/podcasts">Podcasts</NavbarLink> */}
             <NavbarLink href="/about">About</NavbarLink>
           </NavbarLinks>
         </NavbarContainer>
