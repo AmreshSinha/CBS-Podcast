@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import PodCard from "../components/PodCard";
 import axios from "axios";
+import grainImg from "../public/grain-dark.png";
 
 export default function Home({ data }) {
-  console.log("data", data);
   return (
     <>
       <Head>
@@ -15,13 +15,13 @@ export default function Home({ data }) {
       </Head>
 
       <HomeWrapper>
-        <Navbar />
+        {/* <Navbar /> */}
         <PodWrapper>
           <PodContainer>
             <PodTitle>Podcasts</PodTitle>
             <PodList>
-              {data.map((pod, index) => (
-                <PodCard key={index} podcast={pod} />
+              {data.data.map((pod, index) => (
+                <PodCard key={index} podcast={pod} index={index} />
               ))}
             </PodList>
           </PodContainer>
@@ -32,11 +32,15 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  const data = await axios.get("http://localhost:1337/api/podcasts", {
-    headers: {
-      Authorization: "Bearer " + process.env.STRAPI_SECRET,
-    },
-  });
+  const data = await axios
+    .get("http://localhost:1337/api/podcasts?populate=*", {
+      headers: {
+        Authorization: "Bearer " + process.env.STRAPI_SECRET,
+      },
+    })
+    .catch((err) => {
+      return { notFound: false };
+    });
   if (data === undefined || data.data === undefined || data.data === null) {
     return {
       notFound: true,
@@ -50,7 +54,8 @@ export async function getServerSideProps() {
 const HomeWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #000000;
+  background-color: #100f0f;
+  background-image: url(${grainImg.src});
 `;
 
 const PodWrapper = styled.div`
@@ -60,19 +65,25 @@ const PodWrapper = styled.div`
 `;
 
 const PodContainer = styled.div`
-  margin-top: 4rem;
-  width: 62%;
+  margin-top: 6rem;
+  width: 50%;
   min-height: 50vh;
-  background-color: #fff;
+  /* backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125); */
+  background: #fff;
   padding: 15px;
   border-radius: 5px;
+  color: #000;
+  box-shadow: 0 0 100px 0 rgba(255, 255, 255, 0.2);
 `;
 
 const PodTitle = styled.h1`
   font-family: "Space Grotesk", sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #000;
@@ -80,6 +91,7 @@ const PodTitle = styled.h1`
 
 const PodList = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
 `;
