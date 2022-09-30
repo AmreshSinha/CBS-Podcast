@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  podcast-web:
+    build: .
+    restart: always
+    networks:
+      - default
+    env_file: .env
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.docker.network=proxy"
+    #   - "traefik.http.routers.spotifycards-secure.entrypoints=websecure"
+    #   - "traefik.http.routers.spotifycards-secure.rule=Host(`spotify-cards.x-axis.me`)"
+    #   - "traefik.http.routers.spotifycards-secure.service=spotifycards-service"
+    #   - "traefik.http.services.spotifycards-service.loadbalancer.server.port=3000"
+
+# networks:
+#   proxy:
+#     external: true
