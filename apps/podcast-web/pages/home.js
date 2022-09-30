@@ -32,8 +32,9 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
+  const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
   const data = await axios
-    .get("http://localhost:1337/api/podcasts?populate=*", {
+    .get(`http://${ENDPOINT}/api/podcasts?populate=*`, {
       headers: {
         Authorization: "Bearer " + process.env.STRAPI_SECRET,
       },

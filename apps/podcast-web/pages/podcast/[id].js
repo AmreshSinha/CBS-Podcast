@@ -58,6 +58,7 @@ export default function PodCastDetails({ data }) {
 }
 
 export async function getServerSideProps(ctx) {
+  const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
   const { id } = ctx.query;
   if (id === undefined) {
     return {
@@ -65,7 +66,7 @@ export async function getServerSideProps(ctx) {
     };
   }
   const data = await axios
-    .get(`http://localhost:1337/api/podcasts/${id}?populate=*`, {
+    .get(`http://${ENDPOINT}/api/podcasts/${id}?populate=*`, {
       headers: {
         Authorization: "Bearer " + process.env.STRAPI_SECRET,
       },

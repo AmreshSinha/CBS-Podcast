@@ -1,12 +1,35 @@
 version: '3.7'
 
 services:
-  podcast-web:
-    build: .
+  podcast-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.podcast-api
     restart: always
     networks:
       - default
-    env_file: .env
+    env_file: ./apps/podcast-api/.env
+    ports:
+      - 1337:1337
+    volumes:
+      - ./apps/podcast-api/database:/app/apps/podcast-api/database
+      - ./apps/podcast-api/public:/app/apps/podcast-api/public
+      - ./apps/podcast-api/.tmp:/app/apps/podcast-api/.tmp
+    
+  podcast-web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.podcast-web
+    depends_on:
+      - podcast-api
+    restart: always
+    networks:
+      - default
+    env_file: ./apps/podcast-web/.env.local
+    environment:
+      - ENDPOINT=172.16.101.140:1337
+    ports:
+      - 80:3000
     # labels:
     #   - "traefik.enable=true"
     #   - "traefik.docker.network=proxy"
