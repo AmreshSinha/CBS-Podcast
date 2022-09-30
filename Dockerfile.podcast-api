@@ -4,7 +4,7 @@ RUN apk update
 WORKDIR /app
 RUN yarn global add turbo
 COPY . .
-RUN turbo prune --scope=web --docker
+RUN turbo prune --scope=podcast-api --docker
 
 FROM node:alpine AS installer
 RUN apk update
