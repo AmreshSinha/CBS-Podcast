@@ -32,6 +32,7 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
+  // console.log(process.env.ENDPOINT);
   const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
   const data = await axios
     .get(`http://${ENDPOINT}/api/podcasts?populate=*`, {
