@@ -6,6 +6,10 @@ import axios from "axios";
 import grainImg from "../public/grain-dark.png";
 
 export default function Home({ data }) {
+  // Debug
+  // console.log('Endpoint', process.env.NEXT_PUBLIC_ENDPOINT)
+  // console.log('Data:', data)
+
   return (
     <>
       <Head>
@@ -33,9 +37,9 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Debug
-  console.log('ENDPOINT:', process.env.ENDPOINT);
+  // console.log('ENDPOINT:', process.env.NEXT_PUBLIC_ENDPOINT);
   
-  const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
+  const ENDPOINT = process.env.NEXT_PUBLIC_ENDPOINT || 'localhost:1337';
   const data = await axios
     .get(`http://${ENDPOINT}/api/podcasts?populate=*`, {
       headers: {
@@ -43,16 +47,26 @@ export async function getServerSideProps() {
       },
     })
     .catch((err) => {
+      // Debug
+      // console.log('notFound: false')
+
       return { notFound: false };
     });
+
+  // Debug
+  // console.log('Data:', data)
+  
   if (data === undefined || data.data === undefined || data.data === null) {
+    // Debug
+    // console.log('notFound: true')
+
     return {
       notFound: true,
     };
   }
 
   // Debug
-  console.log('Data:', data)
+  // console.log('Data:', data)
 
   return {
     props: { data: data.data },

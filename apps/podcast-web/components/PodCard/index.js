@@ -3,17 +3,22 @@ import Link from "next/link";
 
 export default function PodCard({ podcast }) {
   // Debug
-  console.log(podcast);
-  
+  // console.log(podcast);
+
   const { id } = podcast;
-  const { name, author, episodes, publishedAt, imageUrl } = podcast.attributes;
+  var { name, author, episodes, publishedAt, imageUrl } = podcast.attributes;
+  imageUrl = process.env.NEXT_PUBLIC_ENDPOINT+imageUrl;
+
+  // Debug
+  // console.log(imageUrl);
+
   function formatDate(value, locale = "en-IN") {
     return new Date(value).toDateString(locale);
   }
   return (
     <Link href={`podcast/${id}`}>
       <PodCardContainer>
-        <PodImage style={{ backgroundImage: `url(${imageUrl})` }} />
+        <PodImage style={{ backgroundImage: `url(http://${imageUrl})` }} />
         <PodInfo>
           <PodName>{name}</PodName>
           <PodAuthor>{author}</PodAuthor>

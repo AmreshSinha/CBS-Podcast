@@ -26,8 +26,6 @@ services:
     networks:
       - default
     env_file: ./apps/podcast-web/.env.local
-    environment:
-      - ENDPOINT=172.16.101.140:1337
     ports:
       - 80:3000
     # labels:

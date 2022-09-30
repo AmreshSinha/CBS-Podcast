@@ -16,6 +16,7 @@ export default function PodCastDetails({ data }) {
   // const [music, setMusic] = useRecoilState(musicUrl);
   // const [episode, setEpisode] = useContext(GlobalContext)
   // console.log(data.data.attributes.episodes.data)
+  const imageUrl = 'http://'+process.env.NEXT_PUBLIC_ENDPOINT+data.data.attributes.imageUrl;
 
   return (
     <>
@@ -35,7 +36,7 @@ export default function PodCastDetails({ data }) {
             <Details>
               <SubDetails>
                 <PodcastImage>
-                  <img src={data.data.attributes.imageUrl} />
+                  <img src={imageUrl} />
                 </PodcastImage>
                 <Desc>
                   <h1>{data.data.attributes.name}</h1>
@@ -58,7 +59,7 @@ export default function PodCastDetails({ data }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
+  const ENDPOINT = process.env.NEXT_PUBLIC_ENDPOINT || 'localhost:1337';
   const { id } = ctx.query;
   if (id === undefined) {
     return {
@@ -100,6 +101,7 @@ const PodcastWrapper = styled.div`
 
 const PodcastCard = styled.div`
   margin-top: 6rem;
+  margin-bottom: 6rem;
   width: 50%;
   min-height: 50vh;
   background-color: #fff;

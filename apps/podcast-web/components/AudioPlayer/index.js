@@ -17,7 +17,7 @@ export default function AudioPlayer() {
     setDurationStat(audioRef.current.duration);
   };
 
-  console.log(Math.round(trackProgress));
+  // console.log(Math.round(trackProgress));
 
   useEffect(() => {
     // const audioRef = new Audio(music);
@@ -185,7 +185,7 @@ const AudioPlayerWrapper = styled.div`
 
 const AudioPlayerCard = styled.div`
   width: 50%;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
   background-color: #fff;
   border-radius: 5px 5px 0 0;
   display: flex;

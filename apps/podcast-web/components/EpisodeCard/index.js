@@ -9,10 +9,12 @@ export default function EpisodeCard(props) {
   function formatDate(value, locale = "en-IN") {
     return new Date(value).toDateString(locale);
   }
+  const mp3Link = 'http://'+process.env.NEXT_PUBLIC_ENDPOINT+props.episode.attributes.mp3Link
+
   return (
     <EpisodeCardWrapper
       onClick={() => {
-        setMusic(props.episode.attributes.mp3Link), setIsPlaying(true);
+        setMusic(mp3Link), setIsPlaying(true);
       }}
     >
       <LetterThumb>
