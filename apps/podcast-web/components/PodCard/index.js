@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function PodCard({ podcast }) {
+  // Debug
+  console.log(podcast);
+  
   const { id } = podcast;
   const { name, author, episodes, publishedAt, imageUrl } = podcast.attributes;
   function formatDate(value, locale = "en-IN") {

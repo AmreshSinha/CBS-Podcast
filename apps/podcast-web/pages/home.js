@@ -32,7 +32,9 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
+  // Debug
   console.log('ENDPOINT:', process.env.ENDPOINT);
+  
   const ENDPOINT = process.env.ENDPOINT || 'localhost:1337';
   const data = await axios
     .get(`http://${ENDPOINT}/api/podcasts?populate=*`, {
@@ -48,6 +50,10 @@ export async function getServerSideProps() {
       notFound: true,
     };
   }
+
+  // Debug
+  console.log('Data:', data)
+
   return {
     props: { data: data.data },
   };
