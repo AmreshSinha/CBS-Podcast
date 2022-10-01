@@ -4,7 +4,8 @@
   "info": {
     "singularName": "episode",
     "pluralName": "episodes",
-    "displayName": "episode"
+    "displayName": "episode",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,9 @@
     },
     "mp3Link": {
       "type": "string"
+    },
+    "tagline": {
+      "type": "text"
     }
   }
 }

@@ -22,6 +22,7 @@ export default function EpisodeCard(props) {
       </LetterThumb>
       <RightSide>
         <EpisodeTitle>{props.episode.attributes.name}</EpisodeTitle>
+        <EpisodeTagline>{props.episode.attributes.tagline}</EpisodeTagline>
         <PlayButton>
           <BsFillPlayCircleFill />
           <BsDot />
@@ -53,6 +54,7 @@ const LetterThumb = styled.div`
   align-items: center;
   width: 64px;
   height: 64px;
+  min-width: 64px;
   border-radius: 5px;
   background: #100f0f;
   color: #fff;
@@ -62,6 +64,16 @@ const EpisodeTitle = styled.div`
   font-size: 1.125rem;
   font-weight: 800;
 `;
+
+const EpisodeTagline = styled.div`
+display: -webkit-box;
+line-height: 1.5;
+font-size: 0.875rem;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+`
 
 const PlayButton = styled.div`
   display: flex;
@@ -82,4 +94,5 @@ const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.4rem;
 `;
