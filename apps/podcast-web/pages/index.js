@@ -15,7 +15,8 @@ export default function Landing() {
       {/* <Navbar /> */}
       <PerspectiveGrid>
         <CBSLogo>
-          <img src="/IITG_White.png" alt="CBS Logo" />
+          <img src="/CBS_Black.jpg" alt="CBS Logo" />
+          <img src="/IITG_White.png" alt="IITG Logo" />
         </CBSLogo>
         <PerspectiveGridTitles>
           <h1>IIT Guwahati</h1>
@@ -126,6 +127,7 @@ const CBSLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  gap: 0.6rem;
   img {
     margin-top: 2rem;
     width: 125px;
