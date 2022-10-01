@@ -2,13 +2,15 @@ import styled from "styled-components";
 import React, { useState, useEffect, useRef } from "react";
 // import AudioControls from "./AudioControls";
 import { BsPlayCircleFill, BsPauseCircleFill } from "react-icons/bs";
-import { musicPlaying, musicUrl } from "../../atoms/atoms";
+import { musicPlaying, musicUrl, podcastImg } from "../../atoms/atoms";
 import { useRecoilState } from "recoil";
 
 export default function AudioPlayer() {
   const [music, setMusic] = useRecoilState(musicUrl);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useRecoilState(musicPlaying);
+  const [podcastImgSrc, setPodcastImg] = useRecoilState(podcastImg);
+  console.log(podcastImgSrc);
   const [durationStat, setDurationStat] = useState(0);
   const [trackStyling, setTrackStyling] = useState("");
   const audioRef = useRef();
@@ -140,7 +142,7 @@ export default function AudioPlayer() {
     <AudioPlayerWrapper>
       <AudioPlayerCard>
         <LeftSide>
-          <AudioImage />
+          <AudioImage style={{backgroundImage: `url(${podcastImgSrc})`}} />
         </LeftSide>
         <RightSide>
           <a onClick={onPlayPauseClick}>
@@ -196,7 +198,7 @@ const AudioPlayerCard = styled.div`
 const AudioImage = styled.div`
   width: 64px;
   height: 64px;
-  background-image: url(http://localhost:1337/uploads/1550288890_artwork_b08b613c96.jpg);
+
   background-size: cover;
   border-radius: 5px;
 `;
