@@ -10,7 +10,10 @@ export default function AudioPlayer() {
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useRecoilState(musicPlaying);
   const [podcastImgSrc, setPodcastImg] = useRecoilState(podcastImg);
-  console.log(podcastImgSrc);
+
+  // Debug
+  // console.log(podcastImgSrc);
+
   const [durationStat, setDurationStat] = useState(0);
   const [trackStyling, setTrackStyling] = useState("");
   const audioRef = useRef();
