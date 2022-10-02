@@ -209,6 +209,11 @@ const PerspectiveGridTitles = styled.div`
       font-size: 50px;
     }
   }
+  @media screen and (max-width: 416px) {
+    h1 {
+      font-weight: 500;
+    }
+  }
 `;
 
 const PerspectiveGridContent = styled.div`
