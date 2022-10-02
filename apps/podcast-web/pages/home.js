@@ -116,4 +116,5 @@ const PodList = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+  gap: 0.5rem;
 `;

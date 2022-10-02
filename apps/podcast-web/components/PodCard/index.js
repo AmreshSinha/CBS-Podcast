@@ -41,6 +41,7 @@ const PodCardContainer = styled.div`
   padding: 1rem;
   border-radius: 5px;
   transition: all 0.1s ease-in-out;
+  background-color: rgba(247, 236, 222, 0.5);
   :hover {
     color: #000;
     background-color: #f7ecde;
