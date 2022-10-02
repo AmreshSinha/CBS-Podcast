@@ -129,10 +129,35 @@ const CBSLogo = styled.div`
   align-items: flex-end;
   gap: 0.6rem;
   img {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     width: 125px;
     height: 125px;
     border-radius: 50%;
+  }
+  @media only screen and (max-width: 1366px) {
+    img {
+      width: 100px;
+      height: 100px;
+      margin-top: 2rem;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    img {
+      width: 96px;
+      height: 96px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+  @media screen and (max-width: 416px) {
+    img {
+      width: 80px;
+      height: 80px;
+    }
   }
 `;
 
@@ -160,6 +185,30 @@ const PerspectiveGridTitles = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 1366px) {
+    h1 {
+      font-size: 74px;
+    }
+    h2 {
+      font-size: 74px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    h1 {
+      font-size: 64px;
+    }
+    h2 {
+      font-size: 64px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    h1 {
+      font-size: 50px;
+    }
+    h2 {
+      font-size: 50px;
+    }
+  }
 `;
 
 const PerspectiveGridContent = styled.div`
@@ -169,11 +218,29 @@ const PerspectiveGridContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 32px;
+  @media only screen and (max-width: 1366px) {
+    gap: 24px;
+  }
+  @media only screen and (max-height: 700px) {
+    gap: 5px;
+  }
+  @media only screen and (max-height: 416px) {
+    gap: 32px;
+  }
 `;
 
 const ArrowDown = styled.h1`
   font-size: 96.94px;
   color: #fff;
+  @media only screen and (max-width: 1366px) {
+    font-size: 80px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 64px;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 50px;
+  }
 `;
 
 const Button = styled.button`
@@ -195,5 +262,17 @@ const Button = styled.button`
   :active {
     color: #0c0f14;
     background-color: #fff;
+  }
+  @media only screen and (max-width: 1366px) {
+    font-size: 32px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: 416px) {
+    font-size: 20px;
   }
 `;
